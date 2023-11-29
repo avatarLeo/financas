@@ -1,0 +1,54 @@
+body {
+    background-color: #1b2b3b;
+    color: #ffffff;
+    font-family: sans-serif;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  img {
+    width: 100px;
+  }
+  
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+    width: 400px;
+  }
+  
+  .campo {
+    margin-bottom: 20px;
+  }
+  
+  .campo label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .campo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+  }
+  
+  .botao {
+    text-align: center;
+  }
+  
+  .botao input {
+    background-color: #ffffff;
+    color: #1b2b3b;
+    padding: 10px;
+    border: 1px solid #1b2b3b;
+    cursor: pointer;
+  }
+  

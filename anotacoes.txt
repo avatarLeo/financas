@@ -1,0 +1,2 @@
+O mecanismo de HTML implementado no Flask é chamado de Jinja2
+pesquisar mais sobre outra hora
