@@ -18,7 +18,7 @@ class Banco:
 
 
         self.sql_create_despesas = """CREATE TABLE despesas (
-                                    id_despesas INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    id_despesas INTEGER PRIMARY KEY,
                                     nome TEXT NOT NULL,
                                     data_dadespesa TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                     valor INTEGER NOT NULL
@@ -35,10 +35,10 @@ class Banco:
             self.cursor.execute(self.sql_create_despesas)
 
     def get_db(self):
-        return self.cursor()
+        return self.cursor
     
-    def commit(self):
-         self.con.commit()
+    def conexao(self):
+         self.con
 
     def insert(self, dados):
          sql = """INSERT INTO usuario(nome, cpf, email, senha)

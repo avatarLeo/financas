@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="boas-vindas">
+        <img src="imagem.png" alt="Imagem de boas-vindas">
+        <h1>Nome: {{ nome }}</h1>
+        <h1>CPF: {{ cpf }}</h1>
+        <h1>email: {{ email }}</h1>
+        <h1>Torne-se dono do seu dinheiro</h1>
+        <p>Com o nosso app, você pode:</p>
+        <ul>
+        <li>Visualizar seu saldo em tempo real</li>
+        <li>Controlar seus gastos</li>
+        <li>Planejar suas finanças</li>
+        </ul>
+        <a href="#">Saiba mais</a>
+    </div>
+
+  {% endblock %}

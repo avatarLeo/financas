@@ -1,3 +1,31 @@
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+nav {
+  float: right;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+section {
+  margin-top: 40px;
+}
+
+
+
+
 body {
     background-color: #1b2b3b;
     color: #ffffff;
@@ -8,6 +36,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
     padding: 20px;
   }
   
