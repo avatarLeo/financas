@@ -47,6 +47,18 @@ class Banco:
          self.cursor.execute(sql, dados)
          self.con.commit()
 
+    def get_despesas(self, dados):
+        sql = """SELECT despesas.valor, usuario.nome FROM despesas JOIN usuario ON usuario.id_despesas=despesas.id_despesas WHERE usuario.cpf=?;"""
+         
+        res = self.cursor.execute(sql, (dados,))
+    
+        return res.fetchall()
+    
+    def get_user(self, user):
+        sql = """SELECT cpf, nome, email FROM usuario WHERE cpf=?;"""
+        valor = self.cursor.execute(sql, (user,))
+        return valor.fetchall()
+
 
 if __name__ == '__main__':
     db = Banco()

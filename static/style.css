@@ -74,6 +74,15 @@ body {
   .botao {
     text-align: center;
   }
+  .btn {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
   
   .botao input {
     background-color: #ffffff;
