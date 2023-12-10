@@ -18,10 +18,12 @@ class Banco:
 
 
         self.sql_create_despesas = """CREATE TABLE despesas (
-                                    id_despesas INTEGER PRIMARY KEY,
+                                    id_despesas INTEGER PRIMARY KEY AUTOINCREMENT,
                                     nome TEXT NOT NULL,
                                     data_dadespesa TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                                    valor INTEGER NOT NULL
+                                    valor INTEGER NOT NULL,
+                                    cpf text,
+                                    FOREIGN KEY (cpf) REFERENCES usuario (cpf)
                                 );"""
 
 
@@ -64,4 +66,4 @@ if __name__ == '__main__':
     db = Banco()
     dados = ['Erica', '0002484132', 'erica@financas.com', '0012']
 
-    db.insert(dados)
+    db.create_schema()
