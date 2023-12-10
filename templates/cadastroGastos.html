@@ -1,0 +1,28 @@
+
+{% extends 'basemain.html' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block main_title %}CONFIGURAÇÕES{% endblock %}
+<div class="main-form">
+  <h2>Cadastrar Gasto</h2>
+  <form id="expense-form" method="post">
+    <label for="expense-name">Nome do Gasto:</label>
+    <input type="text" id="expense-name" name="expense-name" required>
+
+    <label for="expense-description">Descrição do Gasto:</label>
+    <textarea id="expense-description" name="expense-description" required></textarea>
+
+    <label for="expense-value">Valor do Gasto (R$):</label>
+    <input type="number" id="expense-value" name="expense-value" min="0" step="0.01" required>
+
+    <label for="expense-date">Data e Hora do Gasto:</label>
+    <input type="datetime-local" id="expense-date" name="expense-date" required>
+
+    <button type="submit">Cadastrar Gasto</button>
+  </form>
+</div>
+
+{% block content %}
+
+{% endblock %}
