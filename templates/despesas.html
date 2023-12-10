@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <h1>Nome: {{ nome }}</h1>
-    <h2>Valor despesa: {{ despesas }}</h2>
+
+    {% for despesa in despesas %}
+        <h2>nome: {{ despesa[0] }}</h2>
+        <h2>Valor despesa: {{ despesas }}</h2>
+        <h2></h2>
+    {% endfor %}
+
 {% endblock %}

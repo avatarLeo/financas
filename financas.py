@@ -48,7 +48,7 @@ def home() -> 'html':
 def despesas() -> 'html':
 	db = Banco()
 	dados = db.get_despesas((session['user']))
-	return render_template('despesas.html', nome=dados[0][1], despesas=dados[0][0])
+	return render_template('despesas.html', despesas=dados)
 
 @app.route('/logout')
 def logoout():
