@@ -47,3 +47,10 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.botao-principal {
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+  }

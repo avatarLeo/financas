@@ -1,10 +1,10 @@
-{% extends 'base.html'%}
+{% extends 'basemain.html'%}
 
 {% block body %}
 
 <header>
     <img src="logo.png" alt="Logotipo do site">
-    <h1>Boas-vindas</h1>
+    <h1>Boas-vindas {{ user }}</h1>
   </header>
 
   <main>
@@ -12,11 +12,13 @@
       Seja bem-vindo ao nosso site!
     </p>
     <p>
-      Aqui, você encontrará tudo o que precisa para [objetivo do site].
+      Aqui, você encontrará tudo o que precisa para organizar a sua vida financeira.
     </p>
     <p>
-      Email: {{ email }}
-      Senha: {{ senha }}
+     <a href="http://localhost:5000/login">Fazer Login</a>
+    </p>
+    <p>
+      <a href="http://localhost:5000/cadastro">Cadastrar</a>
     </p>
   </main>
 

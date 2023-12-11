@@ -15,14 +15,15 @@ class Banco:
                                     id_despesas INTEGER,
                                     FOREIGN KEY (id_despesas) REFERENCES despesas (id_despesas)
                                 );"""
-
+        #colocar data automática CURRENT_TIMESTAMP
 
         self.sql_create_despesas = """CREATE TABLE despesas (
                                     id_despesas INTEGER PRIMARY KEY AUTOINCREMENT,
                                     nome TEXT NOT NULL,
-                                    data_dadespesa TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                    data_dadespesa TIMESTAMP NOT NULL,
                                     valor INTEGER NOT NULL,
                                     cpf text,
+                                    descricao text,
                                     FOREIGN KEY (cpf) REFERENCES usuario (cpf)
                                 );"""
 
@@ -65,6 +66,13 @@ class Banco:
         sql = """SELECT cpf, nome, email FROM usuario WHERE cpf=?;"""
         valor = self.cursor.execute(sql, (user,))
         return valor.fetchall()
+    
+    def salvar_despesas(self, dados):
+         sql = """INSERT INTO despesas (cpf, nome, data_dadespesa,  valor, descricao) 
+                VALUES(?, ?, ?, ?, ?);"""
+         self.cursor.execute(sql, dados)
+         self.con.commit()
+         return True
 
 
 if __name__ == '__main__':
