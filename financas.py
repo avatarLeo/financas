@@ -48,7 +48,11 @@ def home() -> 'html':
 def despesas() -> 'html':
 	db = Banco()
 	dados = db.get_despesas((session['user']))
+<<<<<<< Updated upstream
 	return render_template('despesas.html', despesas=dados)
+=======
+	return render_template('despesas.html', nome=dados[0][1], dados=dados)
+>>>>>>> Stashed changes
 
 @app.route('/logout')
 def logoout():

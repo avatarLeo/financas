@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<<<<<<< Updated upstream
        {% for despesa in despesas %}
             <h2>Nome : {{ despesa[0] }}</h2>
             <h2>Valor : {{ despesa[1] }}</h2>
@@ -9,4 +10,15 @@
         {% endfor %}
 
 
+=======
+    {{dados}}
+
+    {% for despesas in dados %}
+        {{ despesas[] }}
+        {% for despesa in despesas %}
+            <h1>nome: {{ despesa }}</h1>
+        
+        {% endfor %}
+    {% endfor %}
+>>>>>>> Stashed changes
 {% endblock %}
