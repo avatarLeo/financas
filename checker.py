@@ -1,4 +1,4 @@
-from flask import session
+from flask import session, redirect
 from banco.banco import Banco
 
 from functools import wraps
@@ -8,7 +8,7 @@ def check_logged_in(func):
 	def wrapper(*args, **kwargs):
 		if 'logged_in' in session:
 			return func(*args, **kwargs)
-		return 'you are not logged in'
+		return redirect('/login')
 	return wrapper
 
 def check_user(email, senha):

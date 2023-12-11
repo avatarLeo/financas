@@ -4,9 +4,12 @@
 {% block title %}Settings{% endblock %}
 
 {% block main_title %}CONFIGURAÇÕES{% endblock %}
+
+
+{% block body %}
 <div class="main-form">
   <h2>Cadastrar Gasto</h2>
-  <form id="expense-form" method="post">
+  <form id="expense-form" action="http://localhost:5000/salvar_gastos" method="post">
     <label for="expense-name">Nome do Gasto:</label>
     <input type="text" id="expense-name" name="expense-name" required>
 
@@ -22,7 +25,4 @@
     <button type="submit">Cadastrar Gasto</button>
   </form>
 </div>
-
-{% block content %}
-
 {% endblock %}

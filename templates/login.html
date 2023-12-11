@@ -1,3 +1,4 @@
+{% extends 'basemain.html' %}
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -5,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela de Login</title>
-  <link rel="stylesheet" href="/financas/static/login.css">
+  <link rel="stylesheet" href="/static/login.css">
   <!-- Montserrat Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
@@ -14,9 +15,10 @@
 </head>
 
 <body>
+  {% block body %}
   <div class="login-container">
     <h2>Login</h2>
-    <form class="login-form">
+    <form class="login-form" action="http://localhost:5000/autenticar" method="post">
       <label for="username">Usuário:</label>
       <input type="text" id="username" name="username" required>
 
@@ -26,6 +28,7 @@
       <button type="submit">Entrar</button>
     </form>
   </div>
+  {% endblock %}
 </body>
 
 </html>

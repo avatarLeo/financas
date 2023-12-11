@@ -1,3 +1,4 @@
+{% extends 'basemain.html' %}
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -14,12 +15,13 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/financas/static/styles.css">
-  <link rel="stylesheet" href="/financas/static/gasto.css">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/gasto.css">
   
 </head>
 
 <body>
+
   <div class="grid-container">
 
     <!-- Header -->
@@ -53,7 +55,7 @@
             <span class="material-icons-outlined">dashboard</span> Dashboard
           </a>
         <li class="sidebar-list-item">
-          <a href="cadastroGastos.html" target="_blank">
+          <a href="http://localhost:5000/cadastrar_gastos" target="_blank">
             <span class="material-icons-outlined">inventory_2</span> Cadastrar Gasto
           </a>
         </li>
@@ -64,6 +66,7 @@
         </li>
       </ul>
     </aside>
+    {% block body %}
     <!-- End Sidebar -->
 
     <!-- Main -->
@@ -128,7 +131,8 @@
 
   <!-- Scripts -->
   <!-- Custom JS -->
-  <script src="/financas/static/scripts.js"></script>
+  <script src="/static/scripts.js"></script>
+  {% endblock %}
 </body>
 
 </html>

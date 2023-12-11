@@ -5,13 +5,17 @@ from checker import check_logged_in, check_user
 app = Flask(__name__)
 app.secret_key = 'ksfjgne537hbigw97rtymsgu4'
 
-@app.route('/login')
+@app.route('/financas.com')
+def tela_inicial():
+	return render_template('bemvindo.html')
+
+@app.route('/login', methods=['get', 'post'])
 def login() -> 'html':
-	return render_template('formulario_login.html', the_title='Finanças')
+	return render_template('login.html', the_title='Finanças')
 
 @app.route('/cadastro')
 def cadastro() -> 'html':
-	return render_template('formulario_cadastro.html', the_title='Finanças')
+	return render_template('cadastroUser.html')
 
 @app.route('/salvar', methods=['post'])
 def salvar():
@@ -27,8 +31,7 @@ def salvar():
 
 @app.route('/autenticar', methods=['post'])
 def autenticar() -> 'html':
-	dados = check_user(request.form['email'], request.form['senha'])
-	
+	dados = check_user(request.form['username'], request.form['password'])
 	if len(dados) > 0:
 		session['logged_in'] = True
 		session['user'] = dados[0][0]
@@ -40,7 +43,7 @@ def autenticar() -> 'html':
 def home() -> 'html':
 	db = Banco()
 	dados = db.get_user(session['user'])
-	return render_template('home.html', cpf=dados[0][0], nome=dados[0][1], email=dados[0][2])
+	return render_template('index.html', user=dados[0][1])
 
 
 @app.route('/despesas')
@@ -49,6 +52,24 @@ def despesas() -> 'html':
 	db = Banco()
 	dados = db.get_despesas((session['user']))
 	return render_template('despesas.html', nome=dados[0][1], despesas=dados[0][0])
+
+@app.route('/cadastrar_gastos')
+@check_logged_in
+def cadastrar_gastos():
+	return render_template('cadastroGastos.html')
+
+@app.route('/salvar_gastos', methods=['post'])
+@check_logged_in
+def salvar_gastos():
+	dados = []
+	dados.append(session['user'])
+	for k, v in request.form.items():
+		dados.append(v)
+
+	db = Banco()
+	if db.salvar_despesas(dados=dados):
+		return 'Dados salvos com sucesso!'
+	return 'Ouve um erro'
 
 @app.route('/logout')
 def logoout():
