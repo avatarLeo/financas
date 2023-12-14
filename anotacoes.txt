@@ -4,3 +4,9 @@ pesquisar mais sobre outra hora
 tutorial pra usar o SQLALchemy https://leportella.com/pt-br/tutorial-sqlalchemy/
 
 colocando varios dados no front https://www.digitalocean.com/community/tutorials/how-to-query-tables-and-paginate-data-in-flask-sqlalchemy
+
+
+
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only

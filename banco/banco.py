@@ -51,13 +51,8 @@ class Banco:
          self.con.commit()
 
     def get_despesas(self, dados):
-<<<<<<< Updated upstream
         sql = """SELECT despesas.valor, usuario.nome,despesas.data_dadespesa FROM despesas JOIN usuario ON usuario.id_despesas=despesas.id_despesas WHERE usuario.cpf=?;"""
           
-=======
-        sql = """SELECT despesas.nome, despesas.valor, despesas.data_dadespesa  FROM despesas JOIN usuario ON usuario.id_despesas=despesas.id_despesas WHERE usuario.cpf=?;"""
-         
->>>>>>> Stashed changes
         res = self.cursor.execute(sql, (dados,))
     
         return res.fetchall()
