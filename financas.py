@@ -51,16 +51,16 @@ def home() -> 'html':
 def despesas() -> 'html':
 	db = Banco()
 	dados = db.get_despesas((session['user']))
-<<<<<<< Updated upstream
 	return render_template('despesas.html', despesas=dados)
-=======
-	return render_template('despesas.html', nome=dados[0][1], dados=dados)
->>>>>>> Stashed changes
+
 
 @app.route('/cadastrar_gastos')
 @check_logged_in
 def cadastrar_gastos():
-	return render_template('cadastroGastos.html')
+	db = Banco()
+	dados = db.get_user(session['user'])
+
+	return render_template('cadastroGastos.html', user=dados[0][1])
 
 @app.route('/salvar_gastos', methods=['post'])
 @check_logged_in
@@ -74,6 +74,14 @@ def salvar_gastos():
 	if db.salvar_despesas(dados=dados):
 		return 'Dados salvos com sucesso!'
 	return 'Ouve um erro'
+
+@app.route('/editar_user')
+@check_logged_in
+def editar_user():
+	db = Banco()
+	dados = db.get_user(session['user'])
+
+	return render_template('editarUser.html', user=dados[0][1])
 
 @app.route('/logout')
 def logoout():
