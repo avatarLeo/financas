@@ -74,6 +74,13 @@ def salvar_gastos():
 	if db.salvar_despesas(dados=dados):
 		return 'Dados salvos com sucesso!'
 	return 'Ouve um erro'
+@app.route('/editar_user')
+@check_logged_in
+def editar_user():
+	db = Banco()
+	dados = db.get_user(session['user'])
+
+	return render_template('editarUser.html', user=dados[0][1])
 
 @app.route('/editar_user')
 @check_logged_in
@@ -84,6 +91,7 @@ def editar_user():
 	return render_template('editarUser.html', user=dados[0][1])
 
 @app.route('/logout')
+@check_logged_in
 def logoout():
 	session.pop('logged_in')
 
