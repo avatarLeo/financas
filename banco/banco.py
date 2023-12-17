@@ -63,11 +63,23 @@ class Banco:
         return valor.fetchall()
     
     def salvar_despesas(self, dados):
-         sql = """INSERT INTO despesas (cpf, nome, data_dadespesa,  valor, descricao) 
+         sql = """INSERT INTO despesas (cpf, nome, descricao, valor, data_dadespesa) 
                 VALUES(?, ?, ?, ?, ?);"""
          self.cursor.execute(sql, dados)
          self.con.commit()
          return True
+    def busca_despesas_por_data(self, user, data_inicial, data_final):
+         sql = """SELECT nome, valor, data_dadespesa, descricao FROM despesas WHERE cpf=? and data_dadespesa BETWEEN ? AND ?;"""
+
+         valor = self.cursor.execute(sql, (user, data_inicial, data_final,))
+         return valor.fetchall()
+    
+    def get_gasto_diario(user, data):
+        sql = """SELECT nome, valor, data_dadespesa, descricao FROM despesas WHERE cpf=? and data_dadespesa BETWEEN ? AND ?;"""
+
+        valor = self.cursor.execute(sql, (user, data))
+        return valor.fetchall()
+
 
 
 if __name__ == '__main__':
